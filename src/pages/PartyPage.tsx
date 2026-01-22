@@ -7,6 +7,7 @@ import NewsCard from '@/components/news/NewsCard';
 import PartyFilter from '@/components/news/PartyFilter';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import AdSense from '@/components/ads/AdSense';
 
 interface Party {
   id: string;
@@ -131,6 +132,11 @@ const PartyPage = () => {
   return (
     <Layout>
       <div className="container py-8">
+        {/* Top Ad Banner */}
+        <div className="mb-6">
+          <AdSense className="min-h-[90px]" />
+        </div>
+
         {/* Party Header */}
         <div className="mb-8 pb-6 border-b-4" style={{ borderColor: party.color }}>
           <div className="flex items-start gap-6">
@@ -225,9 +231,19 @@ const PartyPage = () => {
           </div>
 
           {/* Sidebar */}
-          <aside>
+          <aside className="space-y-6">
             <PartyFilter />
+            
+            {/* Sidebar Ad */}
+            <div className="bg-card border border-border rounded-sm p-4">
+              <AdSense className="min-h-[250px]" />
+            </div>
           </aside>
+        </div>
+
+        {/* Bottom Ad Banner */}
+        <div className="mt-8">
+          <AdSense className="min-h-[90px]" />
         </div>
       </div>
     </Layout>
