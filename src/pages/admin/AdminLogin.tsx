@@ -93,7 +93,7 @@ const AdminLogin = () => {
     <div className="min-h-screen flex items-center justify-center bg-secondary p-4">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-serif">Amazetimes Now</CardTitle>
+          <CardTitle className="text-2xl font-serif">Amaze Daily Times</CardTitle>
           <CardDescription>Admin Login</CardDescription>
         </CardHeader>
         <CardContent>
@@ -105,7 +105,7 @@ const AdminLogin = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="admin@amazetimes.com"
+                placeholder="admin@amazedailytimes.com"
                 required
               />
             </div>
