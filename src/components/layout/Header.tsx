@@ -3,7 +3,6 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import logo from '@/assets/logo.png';
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -50,11 +49,12 @@ const Header = () => {
       {/* Masthead */}
       <div className="container py-4 text-center border-b border-border">
         <Link to="/" className="inline-block">
-          <img 
-            src={logo} 
-            alt="Amazetimes Now" 
-            className="h-16 md:h-20 mx-auto object-contain"
-          />
+          <h1 className="text-3xl md:text-4xl font-serif font-bold text-primary">
+            {t('AMAZE DAILY TIMES', 'அமேஸ் டெய்லி டைம்ஸ்')}
+          </h1>
+          <p className="text-sm text-muted-foreground mt-1">
+            {t('Politics • News • Analysis', 'அரசியல் • செய்திகள் • பகுப்பாய்வு')}
+          </p>
         </Link>
       </div>
 
