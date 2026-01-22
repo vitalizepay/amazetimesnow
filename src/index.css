@@ -2,95 +2,110 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Noto+Sans+Tamil:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+/* Amazetimes Now - Political News Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core colors - Deep Navy Political Theme */
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 222 47% 11%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 222 47% 11%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Deep Navy Blue */
+    --primary: 217 71% 18%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Light Gray */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Crimson Red */
+    --accent: 348 83% 47%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Breaking news red */
+    --breaking: 0 84% 60%;
+    --breaking-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 217 71% 18%;
 
-    --sidebar-background: 0 0% 98%;
+    --radius: 0.25rem;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Sidebar */
+    --sidebar-background: 217 71% 18%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 348 83% 47%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 71% 25%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 217 71% 25%;
+    --sidebar-ring: 348 83% 47%;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Party colors */
+    --party-dmk: 348 83% 47%;
+    --party-aiadmk: 217 71% 22%;
+    --party-bjp: 32 100% 50%;
+    --party-ntk: 0 100% 27%;
+    --party-pmk: 120 61% 34%;
+    --party-congress: 195 100% 50%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 222 47% 6%;
+    --foreground: 0 0% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 222 47% 8%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 222 47% 8%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 95%;
+    --primary-foreground: 217 71% 18%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 222 47% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 222 47% 15%;
+    --muted-foreground: 220 9% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 348 83% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --breaking: 0 84% 60%;
+    --breaking-foreground: 0 0% 100%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 222 47% 18%;
+    --input: 222 47% 18%;
+    --ring: 0 0% 95%;
+
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 348 83% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 222 47% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 222 47% 15%;
+    --sidebar-ring: 348 83% 55%;
   }
 }
 
@@ -100,6 +115,86 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', 'Noto Sans Tamil', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', 'Noto Sans Tamil', serif;
+    @apply font-bold tracking-tight;
+  }
+
+  /* Tamil typography */
+  .tamil-text {
+    font-family: 'Noto Sans Tamil', sans-serif;
+    @apply leading-relaxed;
+  }
+}
+
+@layer components {
+  /* Breaking news ticker */
+  .breaking-ticker {
+    @apply bg-breaking text-breaking-foreground;
+  }
+
+  .breaking-ticker-text {
+    animation: ticker 30s linear infinite;
+  }
+
+  @keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  /* News card styles */
+  .news-card {
+    @apply bg-card border border-border rounded-sm overflow-hidden transition-shadow duration-200;
+  }
+
+  .news-card:hover {
+    @apply shadow-lg;
+  }
+
+  /* Category badges */
+  .category-badge {
+    @apply inline-block px-2 py-0.5 text-xs font-semibold uppercase tracking-wider rounded-sm;
+  }
+
+  .category-elections {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .category-statements {
+    @apply bg-amber-100 text-amber-800;
+  }
+
+  .category-government {
+    @apply bg-green-100 text-green-800;
+  }
+
+  .category-protests {
+    @apply bg-red-100 text-red-800;
+  }
+
+  /* Party color indicators */
+  .party-indicator {
+    @apply w-1 absolute left-0 top-0 bottom-0;
+  }
+
+  .party-dmk { background-color: hsl(var(--party-dmk)); }
+  .party-aiadmk { background-color: hsl(var(--party-aiadmk)); }
+  .party-bjp { background-color: hsl(var(--party-bjp)); }
+  .party-ntk { background-color: hsl(var(--party-ntk)); }
+  .party-pmk { background-color: hsl(var(--party-pmk)); }
+  .party-congress { background-color: hsl(var(--party-congress)); }
+
+  /* Masthead */
+  .masthead {
+    @apply border-b-4 border-primary;
+  }
+
+  /* Section dividers */
+  .section-divider {
+    @apply border-t-2 border-primary my-8;
   }
 }
