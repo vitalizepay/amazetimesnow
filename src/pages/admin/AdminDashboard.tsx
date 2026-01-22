@@ -279,7 +279,7 @@ const AdminDashboard = () => {
         <div className="container flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Newspaper className="w-6 h-6" />
-            <h1 className="text-xl font-serif font-bold">Amazetimes Now Admin</h1>
+            <h1 className="text-xl font-serif font-bold">Amaze Daily Times Admin</h1>
           </div>
           <div className="flex items-center gap-4">
             <span className="text-sm opacity-80">{user.email}</span>
