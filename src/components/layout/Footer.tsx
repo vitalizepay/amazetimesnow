@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <h3 className="text-2xl font-serif font-bold mb-4">
-              {t('AMAZETIMES NOW', 'அமேஸ்டைம்ஸ் நவ்')}
+              {t('AMAZE DAILY TIMES', 'அமேஸ் டெய்லி டைம்ஸ்')}
             </h3>
             <p className={`text-primary-foreground/80 text-sm ${language === 'ta' ? 'font-tamil' : ''}`}>
               {t(
@@ -75,7 +75,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm text-primary-foreground/60">
-          <p>© {new Date().getFullYear()} Amazetimes Now. {t('All rights reserved.', 'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.')}</p>
+          <p>© {new Date().getFullYear()} Amaze Daily Times. {t('All rights reserved.', 'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.')}</p>
         </div>
       </div>
     </footer>

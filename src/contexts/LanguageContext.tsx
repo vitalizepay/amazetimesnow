@@ -17,13 +17,13 @@ interface LanguageProviderProps {
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('amazetimes-language');
+    const saved = localStorage.getItem('amazedailytimes-language');
     return (saved as Language) || 'en';
   });
 
   const handleSetLanguage = useCallback((lang: Language) => {
     setLanguage(lang);
-    localStorage.setItem('amazetimes-language', lang);
+    localStorage.setItem('amazedailytimes-language', lang);
   }, []);
 
   const t = useCallback((en: string, ta: string) => {
