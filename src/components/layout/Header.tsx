@@ -3,6 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import logo from '@/assets/logo.png';
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -47,14 +48,13 @@ const Header = () => {
       </div>
 
       {/* Masthead */}
-      <div className="container py-6 text-center border-b border-border">
+      <div className="container py-4 text-center border-b border-border">
         <Link to="/" className="inline-block">
-          <h1 className="text-4xl md:text-5xl font-serif font-black text-primary tracking-tight">
-            {t('AMAZETIMES NOW', 'அமேஸ்டைம்ஸ் நவ்')}
-          </h1>
-          <p className={`mt-1 text-sm text-muted-foreground uppercase tracking-widest ${language === 'ta' ? 'font-tamil' : ''}`}>
-            {t('Tamil Nadu Political News', 'தமிழ்நாடு அரசியல் செய்திகள்')}
-          </p>
+          <img 
+            src={logo} 
+            alt="Amazetimes Now" 
+            className="h-16 md:h-20 mx-auto object-contain"
+          />
         </Link>
       </div>
 
@@ -76,7 +76,7 @@ const Header = () => {
           </div>
 
           {/* Desktop navigation */}
-          <ul className={`md:flex md:items-center md:justify-center md:gap-6 py-3 ${mobileMenuOpen ? 'block' : 'hidden md:flex'}`}>
+          <ul className={`md:flex md:items-center md:justify-center md:gap-4 lg:gap-6 py-3 ${mobileMenuOpen ? 'block' : 'hidden md:flex'}`}>
             <li>
               <Link 
                 to="/" 
@@ -131,6 +131,14 @@ const Header = () => {
                 className={`block py-2 md:py-0 font-medium text-foreground hover:text-accent transition-colors ${language === 'ta' ? 'font-tamil' : ''}`}
               >
                 {t('Congress', 'காங்கிரஸ்')}
+              </Link>
+            </li>
+            <li>
+              <Link 
+                to="/party/tvk" 
+                className={`block py-2 md:py-0 font-medium text-foreground hover:text-accent transition-colors ${language === 'ta' ? 'font-tamil' : ''}`}
+              >
+                {t('TVK', 'தவக')}
               </Link>
             </li>
           </ul>

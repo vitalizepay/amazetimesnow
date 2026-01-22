@@ -9,6 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { format } from 'date-fns';
 import { ta, enIN } from 'date-fns/locale';
 import { ArrowLeft } from 'lucide-react';
+import AdSense from '@/components/ads/AdSense';
 
 interface Article {
   id: string;
@@ -162,6 +163,11 @@ const ArticlePage = () => {
   return (
     <Layout>
       <article className="container py-8 max-w-4xl mx-auto">
+        {/* Top Ad Banner */}
+        <div className="mb-6">
+          <AdSense className="min-h-[90px]" />
+        </div>
+
         {/* Back link */}
         <Link
           to={article.parties ? `/party/${article.parties.slug}` : '/'}
@@ -215,13 +221,18 @@ const ArticlePage = () => {
 
         {/* Article Content */}
         <div
-          className={`prose prose-lg max-w-none mb-12 ${language === 'ta' ? 'font-tamil' : ''}`}
+          className={`prose prose-lg max-w-none mb-8 ${language === 'ta' ? 'font-tamil' : ''}`}
         >
           {content.split('\n').map((paragraph, idx) => (
             <p key={idx} className="mb-4 text-foreground leading-relaxed">
               {paragraph}
             </p>
           ))}
+        </div>
+
+        {/* Mid-article Ad */}
+        <div className="mb-8">
+          <AdSense className="min-h-[250px]" />
         </div>
 
         {/* Source */}
@@ -254,6 +265,11 @@ const ArticlePage = () => {
             </div>
           </section>
         )}
+
+        {/* Bottom Ad Banner */}
+        <div className="mt-8">
+          <AdSense className="min-h-[90px]" />
+        </div>
       </article>
     </Layout>
   );

@@ -5,6 +5,7 @@ import Layout from '@/components/layout/Layout';
 import NewsCard from '@/components/news/NewsCard';
 import PartyFilter from '@/components/news/PartyFilter';
 import { Skeleton } from '@/components/ui/skeleton';
+import AdSense from '@/components/ads/AdSense';
 
 interface NewsItem {
   id: string;
@@ -68,6 +69,11 @@ const Index = () => {
   return (
     <Layout>
       <div className="container py-8">
+        {/* Top Ad Banner */}
+        <div className="mb-6">
+          <AdSense className="min-h-[90px]" />
+        </div>
+
         {/* Featured News */}
         {featuredNews.length > 0 && (
           <section className="mb-10">
@@ -123,11 +129,21 @@ const Index = () => {
                 {t('No news available', 'செய்திகள் இல்லை')}
               </p>
             )}
+
+            {/* Mid-content Ad */}
+            <div className="mt-8">
+              <AdSense className="min-h-[250px]" />
+            </div>
           </div>
 
           {/* Sidebar */}
           <aside className="space-y-6">
             <PartyFilter />
+
+            {/* Sidebar Ad */}
+            <div className="bg-card border border-border rounded-sm p-4">
+              <AdSense className="min-h-[250px]" />
+            </div>
             
             {/* Categories */}
             <div className="bg-card border border-border rounded-sm p-4">
@@ -154,6 +170,11 @@ const Index = () => {
               </ul>
             </div>
           </aside>
+        </div>
+
+        {/* Bottom Ad Banner */}
+        <div className="mt-8">
+          <AdSense className="min-h-[90px]" />
         </div>
       </div>
     </Layout>
