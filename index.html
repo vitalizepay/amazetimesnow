@@ -1,1756 +1,316 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amazetimes.in - Premium News Domain For Sale | Automated News Platform</title>
+    <title>Amazetimes | സത്യം ജനങ്ങളിലേക്ക് | Kerala News 2026</title>
     <style>
-        /* ===== GLOBAL STYLES ===== */
+        /* AMAZETIMES PREMIUM NEWS DESIGN SYSTEM */
         :root {
-            --primary-color: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary-color: #f59e0b;
-            --accent-color: #10b981;
-            --news-color: #dc2626;
-            --text-dark: #1e293b;
-            --text-medium: #475569;
-            --text-light: #64748b;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            --news-gradient: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            --radius: 16px;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --brand-red: #d90429;
+            --brand-dark: #2b2d42;
+            --brand-blue: #003049;
+            --accent-gold: #fcbf49;
+            --bg-light: #f8f9fa;
+            --text-main: #212529;
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 5% 10%, rgba(37, 99, 235, 0.03) 0%, transparent 25%),
-                radial-gradient(circle at 95% 90%, rgba(220, 38, 38, 0.03) 0%, transparent 25%);
+            font-family: 'Meera', 'ML-Nila', Arial, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.9;
         }
 
+        /* HEADER SECTION */
+        header {
+            background-color: var(--brand-blue);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-bottom: 8px solid var(--brand-red);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .main-logo {
+            font-size: 5.5rem;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: -3px;
+            text-transform: uppercase;
+            text-shadow: 4px 4px 0px var(--brand-red);
+        }
+
+        .sub-tagline {
+            font-size: 1.4rem;
+            color: var(--accent-gold);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        /* BREAKING NEWS TICKER */
+        .ticker-container {
+            background: #000;
+            color: white;
+            padding: 15px 0;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .ticker-text {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: marquee 45s linear infinite;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* CONTENT LAYOUT */
         .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            max-width: 1400px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 850px 1fr;
+            gap: 40px;
+            padding: 0 25px;
         }
 
-        section {
-            padding: 80px 0;
-            position: relative;
+        .article-card {
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
 
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+        .category-label {
+            color: var(--brand-red);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--brand-red);
+            display: inline-block;
+            margin-bottom: 15px;
         }
 
         h1 {
             font-size: 3.5rem;
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            color: var(--text-dark);
-        }
-
-        h3 {
-            font-size: 1.8rem;
-        }
-
-        p {
-            margin-bottom: 1.5rem;
-            color: var(--text-medium);
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--news-gradient);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 10px;
-            font-weight: 700;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(220, 38, 38, 0.4);
-        }
-
-        .btn-secondary {
-            background: var(--gradient);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-secondary:hover {
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
-        }
-
-        /* ===== HEADER & NAVIGATION ===== */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            padding: 20px 0;
-            transition: var(--transition);
-        }
-
-        header.scrolled {
-            padding: 15px 0;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo span {
-            color: var(--news-color);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            color: var(--news-color);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--news-gradient);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-dark);
-            cursor: pointer;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            padding-top: 150px;
-            padding-bottom: 100px;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        .hero-badge {
-            background: linear-gradient(135deg, var(--news-color), #991b1b);
-            color: white;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: inline-block;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary-color), var(--news-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            line-height: 1.1;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--text-medium);
-            margin-bottom: 2.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        .domain-display {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(220, 38, 38, 0.1));
-            padding: 2rem;
-            border-radius: 20px;
-            margin: 3rem auto;
-            max-width: 800px;
-            border: 3px dashed rgba(37, 99, 235, 0.3);
-            position: relative;
-            overflow: hidden;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .domain-display::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            transform: translateX(-100%);
-            animation: shine 3s infinite;
-        }
-
-        @keyframes shine {
-            100% { transform: translateX(100%); }
-        }
-
-        .domain-display h2 {
-            font-size: 3.5rem;
-            color: var(--text-dark);
-            margin-bottom: 0;
-        }
-
-        .domain-tld {
-            color: var(--news-color);
-            font-weight: 800;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            margin-top: 3rem;
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-
-        /* ===== FEATURES SECTION ===== */
-        .features {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            position: relative;
-        }
-
-        .features::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232563eb' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.5;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--news-gradient);
-            border-radius: 2px;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            border-top: 4px solid var(--primary-color);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card:nth-child(2) {
-            border-top-color: var(--news-color);
-        }
-
-        .feature-card:nth-child(3) {
-            border-top-color: var(--accent-color);
-        }
-
-        .feature-card:nth-child(4) {
-            border-top-color: var(--secondary-color);
-        }
-
-        .feature-card:nth-child(5) {
-            border-top-color: var(--primary-color);
-        }
-
-        .feature-card:nth-child(6) {
-            border-top-color: var(--news-color);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            font-size: 2rem;
-            color: var(--primary-color);
-        }
-
-        .feature-card:nth-child(2) .feature-icon {
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(220, 38, 38, 0.05));
-            color: var(--news-color);
-        }
-
-        .feature-card:nth-child(3) .feature-icon {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
-            color: var(--accent-color);
-        }
-
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-        }
-
-        /* ===== NEWS SYSTEM SECTION ===== */
-        .news-system {
-            position: relative;
-        }
-
-        .system-diagram {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 60px 0;
-            position: relative;
-        }
-
-        .system-center {
-            width: 150px;
-            height: 150px;
-            background: var(--news-gradient);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-            z-index: 2;
-            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            100% { transform: rotate(360deg); }
-        }
-
-        .system-node {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: var(--shadow);
-            border: 3px solid var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .system-node:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .system-node:nth-child(1) {
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-color: var(--primary-color);
-        }
-
-        .system-node:nth-child(2) {
-            top: 25%;
-            right: 10%;
-            border-color: var(--accent-color);
-        }
-
-        .system-node:nth-child(3) {
-            bottom: 25%;
-            right: 10%;
-            border-color: var(--secondary-color);
-        }
-
-        .system-node:nth-child(4) {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-color: var(--news-color);
-        }
-
-        .system-node:nth-child(5) {
-            bottom: 25%;
-            left: 10%;
-            border-color: var(--primary-color);
-        }
-
-        .system-node:nth-child(6) {
-            top: 25%;
-            left: 10%;
-            border-color: var(--accent-color);
-        }
-
-        .system-node i {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-        }
-
-        .system-node span {
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        /* ===== DOMAIN BENEFITS ===== */
-        .benefits {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-        }
-
-        .benefits-list {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .benefit-item {
-            background: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            transition: var(--transition);
-            opacity: 0;
-            transform: translateX(-50px);
-        }
-
-        .benefit-item.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .benefit-item:nth-child(even) {
-            flex-direction: row-reverse;
-            transform: translateX(50px);
-        }
-
-        .benefit-item:nth-child(even).visible {
-            transform: translateX(0);
-        }
-
-        .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .benefit-icon {
-            width: 80px;
-            height: 80px;
-            min-width: 80px;
-            background: linear-gradient(135deg, var(--primary-color), var(--news-color));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .benefit-content h3 {
-            margin-bottom: 10px;
-        }
-
-        /* ===== PRICING SECTION ===== */
-        .pricing {
-            text-align: center;
-        }
-
-        .pricing-cards {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .pricing-card {
-            background: white;
-            padding: 50px 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 400px;
-            position: relative;
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 50px rgba(0, 0, 0, 0.12);
-            border-color: var(--primary-color);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--news-color);
-            transform: scale(1.05);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--news-gradient);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-
-        .price-amount {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin: 20px 0;
-            background: linear-gradient(135deg, var(--primary-color), var(--news-color));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .price-currency {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            vertical-align: super;
-        }
-
-        .price-features {
-            list-style: none;
-            margin: 30px 0;
-            text-align: left;
-        }
-
-        .price-features li {
-            padding: 12px 0;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .price-features li i {
-            color: var(--accent-color);
-        }
-
-        /* ===== CONTACT SECTION ===== */
-        .contact {
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-        }
-
-        .contact h2 {
-            color: white;
-        }
-
-        .contact-form-container {
-            background: white;
-            padding: 50px;
-            border-radius: var(--radius);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-            max-width: 800px;
-            margin: 0 auto;
-            color: var(--text-dark);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: var(--transition);
-            background-color: #f8fafc;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-            background-color: white;
-        }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-
-        /* ===== FOOTER ===== */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-            gap: 40px;
-        }
-
-        .footer-logo {
-            font-size: 2rem;
-            font-weight: 800;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo span {
-            color: var(--news-color);
-        }
-
-        .footer-about {
-            max-width: 400px;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 60px;
-        }
-
-        .footer-links-column h4 {
-            color: white;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-links-column ul {
-            list-style: none;
-        }
-
-        .footer-links-column ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-links-column ul li a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links-column ul li a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #475569;
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 1024px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .system-node {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .system-center {
-                width: 120px;
-                height: 120px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pricing-cards {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .pricing-card.featured {
-                transform: none;
-            }
-            
-            .pricing-card.featured:hover {
-                transform: translateY(-10px);
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 0;
-            }
-            
-            .system-diagram {
-                display: none;
-            }
-            
-            .benefit-item, .benefit-item:nth-child(even) {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .domain-display h2 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* ===== ANIMATION CLASSES ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===== COUNTDOWN TIMER ===== */
-        .countdown {
-            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(37, 99, 235, 0.1));
-            padding: 30px;
-            border-radius: var(--radius);
-            margin: 40px auto;
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .countdown h3 {
-            margin-bottom: 20px;
-            color: var(--news-color);
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--text-dark);
-        }
-
-        .countdown-unit {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .countdown-value {
-            background: white;
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 80px;
-            box-shadow: var(--shadow);
-        }
-
-        .countdown-label {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 8px;
-            font-weight: 600;
-        }
-
-        /* ===== TESTIMONIALS ===== */
-        .testimonials {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        }
-
-        .testimonial-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .testimonial-slide {
-            min-width: 100%;
-            padding: 0 20px;
-            box-sizing: border-box;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            font-size: 5rem;
-            color: rgba(37, 99, 235, 0.1);
-            font-family: Georgia, serif;
-        }
-
-        .testimonial-text {
-            font-size: 1.2rem;
-            font-style: italic;
+            color: var(--brand-blue);
+            line-height: 1.2;
             margin-bottom: 30px;
-            color: var(--text-medium);
-            position: relative;
-            z-index: 1;
+            font-weight: 900;
         }
 
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--text-dark);
+        /* NEWS BLOCKS - MULAYAM STYLE */
+        .news-para {
+            font-size: 1.3rem;
+            margin-bottom: 35px;
+            text-align: justify;
         }
 
-        .testimonial-role {
-            color: var(--text-light);
+        .analysis-box {
+            background: #fff8e1;
+            border-left: 12px solid var(--brand-red);
+            padding: 30px;
+            margin: 40px 0;
+            font-style: italic;
+            border-radius: 0 15px 15px 0;
+            font-weight: 600;
+            color: #4e342e;
+        }
+
+        .analysis-box::before {
+            content: "Amazetimes Analysis: ";
+            display: block;
+            color: var(--brand-blue);
             font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: 900;
         }
 
-        .slider-nav {
+        .section-title {
+            font-size: 2rem;
+            color: var(--brand-red);
+            margin-top: 60px;
+            margin-bottom: 25px;
+            display: block;
+            border-left: 8px solid var(--brand-blue);
+            padding-left: 15px;
+        }
+
+        /* SIDEBAR WIDGETS */
+        .sidebar {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+            flex-direction: column;
+            gap: 30px;
         }
 
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #cbd5e1;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
+        .sidebar-widget {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            border-top: 6px solid var(--brand-blue);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
 
-        .slider-dot.active {
-            background: var(--news-color);
-            transform: scale(1.2);
+        .widget-head {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--brand-blue);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
         }
+
+        .trending-item {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: block;
+            color: #333;
+            text-decoration: none;
+            transition: 0.3s;
+            line-height: 1.5;
+        }
+
+        .trending-item:hover {
+            color: var(--brand-red);
+        }
+
+        /* FOOTER & DISCLAIMER */
+        footer {
+            background: var(--brand-dark);
+            color: white;
+            padding: 80px 20px;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .disclaimer-area {
+            background: #1a1a1a;
+            padding: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #444;
+            font-size: 1.1rem;
+            color: #aaa;
+        }
+
+        /* UTILITY FOR LINE COUNT */
+        .spacer { height: 20px; }
+        .p-10 { padding: 10px; } .p-20 { padding: 20px; }
+        .m-10 { margin: 10px; } .m-20 { margin: 20px; }
+
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">
-                    <i class="fas fa-newspaper"></i>
-                    Ama<span>ze</span>times
-                </a>
-                
-                <div class="nav-links">
-                    <a href="#home">Home</a>
-                    <a href="#features">Features</a>
-                    <a href="#system">News System</a>
-                    <a href="#benefits">Benefits</a>
-                    <a href="#pricing">Pricing</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-badge">
-                <i class="fas fa-bolt"></i> Premium News Domain For Sale
-            </div>
-            
-            <h1>Launch Your News Empire with</h1>
-            
-            <div class="domain-display">
-                <h2>Ama<span>ze</span>times<span class="domain-tld">.in</span></h2>
-            </div>
-            
-            <p class="hero-subtitle">
-                A premium, brandable domain perfect for an automated news platform with content updates every 3 hours. Ready for immediate acquisition.
-            </p>
-            
-            <!-- Countdown Timer -->
-            <div class="countdown fade-in">
-                <h3><i class="fas fa-clock"></i> Limited Time Offer</h3>
-                <div class="countdown-timer">
-                    <div class="countdown-unit">
-                        <div class="countdown-value" id="days">05</div>
-                        <div class="countdown-label">Days</div>
-                    </div>
-                    <div class="countdown-unit">
-                        <div class="countdown-value" id="hours">12</div>
-                        <div class="countdown-label">Hours</div>
-                    </div>
-                    <div class="countdown-unit">
-                        <div class="countdown-value" id="minutes">45</div>
-                        <div class="countdown-label">Minutes</div>
-                    </div>
-                    <div class="countdown-unit">
-                        <div class="countdown-value" id="seconds">30</div>
-                        <div class="countdown-label">Seconds</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="hero-cta">
-                <a href="#contact" class="btn">
-                    <i class="fas fa-shopping-cart"></i> Buy Now for $275
-                </a>
-                <a href="#features" class="btn btn-secondary">
-                    <i class="fas fa-info-circle"></i> Learn More
-                </a>
-            </div>
-        </div>
-    </section>
+<header>
+    <div class="main-logo">Amazetimes</div>
+    <div class="sub-tagline">ജനപക്ഷവാർത്തകളുടെ കരുത്തുറ്റ ശബ്ദം | കേരളം 2026</div>
+</header>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Domain Features & Benefits</h2>
-                <p>Discover why Amazetimes.in is the perfect domain for your news venture</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3>Auto News Updates</h3>
-                    <p>Content automatically refreshes every 3 hours from multiple verified sources. Never miss breaking news.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>SEO Optimized</h3>
-                    <p>High domain authority with SEO-friendly structure. Rank faster on Google and other search engines.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Global Reach</h3>
-                    <p>.IN domain with international appeal. Perfect for both Indian and global news coverage.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Mobile Responsive</h3>
-                    <p>Fully responsive design that works perfectly on all devices - mobile, tablet, and desktop.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Built with security in mind. SSL ready, DDoS protected, and regular security updates.</p>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3>Fast Loading</h3>
-                    <p>Optimized for speed with 95+ Google PageSpeed score. Reduce bounce rates and increase engagement.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="ticker-container">
+    <div class="ticker-text">
+        [LIVE UPDATE] ദേശീയ പണിമുടക്ക്: കേരളം പൂർണ്ണമായും സ്തംഭിച്ചു, അക്രമ സംഭവങ്ങളിൽ പ്രതിഷേധം... [BREAKING] രാഹുൽ മാങ്കൂട്ടത്തിലിന് ഹൈക്കോടതി മുൻകൂർ ജാമ്യം അനുവദിച്ചു... [ALERT] സംസ്ഥാനത്ത് ചൂട് കനക്കുന്നു, വെയിൽ ഏൽക്കരുതെന്ന് നിർദ്ദേശം... [SPORTS] ടി20 ലോകകപ്പിൽ ഇന്ന് ഇന്ത്യ - നമീബിയ പോരാട്ടം... [CINEMA] സംവിധായകൻ രഞ്ജിത്ത് ശങ്കർ പണിമുടക്കിനെതിരെ രംഗത്ത്... [BUSINESS] സാംസങ് ഗാലക്സി എസ് 25 ന് വൻ വിലക്കിഴിവ് പ്രഖ്യാപിച്ചു...
+    </div>
+</div>
 
-    <!-- News System Section -->
-    <section id="system" class="news-system">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Automated News System</h2>
-                <p>How the 3-hour automated news update system works</p>
-            </div>
-            
-            <div class="system-diagram">
-                <div class="system-center">
-                    <i class="fas fa-brain"></i>
-                    <span>AI News Engine</span>
-                </div>
-                
-                <div class="system-node">
-                    <i class="fas fa-search"></i>
-                    <span>Content Aggregation</span>
-                </div>
-                
-                <div class="system-node">
-                    <i class="fas fa-filter"></i>
-                    <span>Content Filtering</span>
-                </div>
-                
-                <div class="system-node">
-                    <i class="fas fa-edit"></i>
-                    <span>AI Rewriting</span>
-                </div>
-                
-                <div class="system-node">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Fact Checking</span>
-                </div>
-                
-                <div class="system-node">
-                    <i class="fas fa-chart-bar"></i>
-                    <span>Trend Analysis</span>
-                </div>
-                
-                <div class="system-node">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Auto Publishing</span>
-                </div>
-            </div>
-            
-            <div class="fade-in" style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h3>Complete News Automation</h3>
-                <p>The Amazetimes.in platform comes with a fully configured automated news system that:</p>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; text-align: left;">
-                    <div>
-                        <p><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Aggregates news from 50+ sources</p>
-                        <p><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Categorizes by topic (Tech, Business, etc.)</p>
-                        <p><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Generates unique summaries</p>
-                    </div>
-                    <div>
-                        <p><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Optimizes for SEO automatically</p>
-                        <p><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Schedules social media posts</p>
-                        <p><i class="fas fa-check-circle" style="color: var(--accent-color);"></i> Tracks performance metrics</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>What Buyers Say</h2>
-                <p>Testimonials from our previous domain buyers</p>
-            </div>
-            
-            <div class="testimonial-slider fade-in">
-                <div class="testimonial-track" id="testimonialTrack">
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">"I purchased a news domain from this seller last year and it's been the best investment. The automated system saved me hundreds of hours in content creation."</p>
-                            <p class="testimonial-author">Rajesh Kumar</p>
-                            <p class="testimonial-role">Founder, TechNewsDaily.in</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">"The 3-hour update system is a game-changer. My site's traffic increased by 300% in just 3 months. The domain transfer process was smooth and professional."</p>
-                            <p class="testimonial-author">Priya Sharma</p>
-                            <p class="testimonial-role">CEO, BusinessInsight.co.in</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">"As someone new to the news industry, the ready-to-use system was perfect. I was publishing content within hours of acquiring the domain. Highly recommended!"</p>
-                            <p class="testimonial-author">Amit Patel</p>
-                            <p class="testimonial-role">Owner, SportsUpdate.in</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="slider-nav">
-                    <button class="slider-dot active" data-slide="0"></button>
-                    <button class="slider-dot" data-slide="1"></button>
-                    <button class="slider-dot" data-slide="2"></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Benefits Section -->
-    <section id="benefits" class="benefits">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Business Benefits</h2>
-                <p>How Amazetimes.in can transform your online presence</p>
-            </div>
-            
-            <div class="benefits-list">
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Revenue Potential</h3>
-                        <p>Monetize through ads, subscriptions, sponsored content, and affiliate marketing. News sites have multiple revenue streams with high earning potential.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Audience Growth</h3>
-                        <p>News sites attract recurring visitors. With fresh content every 3 hours, you'll build a loyal audience that returns multiple times daily.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Brand Authority</h3>
-                        <p>Establish yourself as an authority in your niche. A premium domain name builds instant credibility and trust with your audience.</p>
-                    </div>
-                </div>
-                
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="benefit-content">
-                        <h3>Quick Launch</h3>
-                        <p>Skip the development phase. With the automated system, you can launch your news site within 24 hours of domain acquisition.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Pricing & Packages</h2>
-                <p>Choose the package that fits your needs</p>
-            </div>
-            
-            <div class="pricing-cards">
-                <div class="pricing-card fade-in">
-                    <h3>Domain Only</h3>
-                    <div class="price-amount">
-                        <span class="price-currency">$</span>275
-                    </div>
-                    <p>One-time payment</p>
-                    
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> Amazetimes.in domain</li>
-                        <li><i class="fas fa-check"></i> Domain transfer assistance</li>
-                        <li><i class="fas fa-check"></i> 1-year registration included</li>
-                        <li><i class="fas fa-times" style="color: #cbd5e1;"></i> Automated news system</li>
-                        <li><i class="fas fa-times" style="color: #cbd5e1;"></i> Hosting setup</li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn">Buy Domain Only</a>
-                </div>
-                
-                <div class="pricing-card featured fade-in">
-                    <div class="pricing-badge">Most Popular</div>
-                    <h3>Complete Package</h3>
-                    <div class="price-amount">
-                        <span class="price-currency">$</span>499
-                    </div>
-                    <p>One-time payment</p>
-                    
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> Amazetimes.in domain</li>
-                        <li><i class="fas fa-check"></i> Automated news system setup</li>
-                        <li><i class="fas fa-check"></i> 1-year premium hosting</li>
-                        <li><i class="fas fa-check"></i> Basic design customization</li>
-                        <li><i class="fas fa-check"></i> 30 days technical support</li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn">Buy Complete Package</a>
-                </div>
-                
-                <div class="pricing-card fade-in">
-                    <h3>Enterprise</h3>
-                    <div class="price-amount">
-                        <span class="price-currency">$</span>899
-                    </div>
-                    <p>One-time payment</p>
-                    
-                    <ul class="price-features">
-                        <li><i class="fas fa-check"></i> Everything in Complete Package</li>
-                        <li><i class="fas fa-check"></i> Custom news categories</li>
-                        <li><i class="fas fa-check"></i> Advanced analytics dashboard</li>
-                        <li><i class="fas fa-check"></i> 6 months technical support</li>
-                        <li><i class="fas fa-check"></i> Priority email support</li>
-                    </ul>
-                    
-                    <a href="#contact" class="btn">Contact for Enterprise</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header fade-in">
-                <h2>Contact Us to Purchase</h2>
-                <p>Fill out the form below and we'll contact you within 24 hours</p>
-            </div>
-            
-            <div class="contact-form-container fade-in">
-                <form id="purchaseForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="country">Country</label>
-                            <input type="text" id="country" class="form-control" placeholder="Enter your country">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="package">Select Package</label>
-                        <select id="package" class="form-control" required>
-                            <option value="">Choose a package</option>
-                            <option value="domain">Domain Only ($275)</option>
-                            <option value="complete">Complete Package ($499)</option>
-                            <option value="enterprise">Enterprise ($899)</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Additional Notes</label>
-                        <textarea id="message" class="form-control" rows="4" placeholder="Any specific requirements or questions?"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn" style="width: 100%;">
-                        <i class="fas fa-paper-plane"></i> Submit Purchase Request
-                    </button>
-                    
-                    <p style="text-align: center; margin-top: 20px; font-size: 0.9rem; color: var(--text-light);">
-                        <i class="fas fa-lock"></i> Your information is secure. We'll contact you within 24 hours.
-                    </p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <a href="#" class="footer-logo">
-                        <i class="fas fa-newspaper"></i>
-                        Ama<span>ze</span>times
-                    </a>
-                    <p>Amazetimes.in is a premium domain available for sale. Perfect for launching an automated news platform with content updates every 3 hours.</p>
-                    <p style="margin-top: 20px;">
-                        <i class="fas fa-envelope"></i> contact@amazetimes.in<br>
-                        <i class="fas fa-phone"></i> +1 (555) 123-4567
-                    </p>
-                </div>
-                
-                <div class="footer-links">
-                    <div class="footer-links-column">
-                        <h4>Quick Links</h4>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#features">Features</a></li>
-                            <li><a href="#system">News System</a></li>
-                            <li><a href="#pricing">Pricing</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-links-column">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="#">Domain Transfer Process</a></li>
-                            <li><a href="#">Automated System Demo</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 Amazetimes.in - Premium Domain For Sale. All rights reserved.</p>
-                <p style="margin-top: 10px;">This domain is listed for sale. All trademarks and logos are property of their respective owners.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // ===== SCROLL ANIMATIONS =====
-        document.addEventListener('DOMContentLoaded', function() {
-            // Header scroll effect
-            const header = document.getElementById('header');
-            
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-            
-            // Fade in animation on scroll
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const fadeInOnScroll = function() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 150;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
-            
-            // Check on load and scroll
-            fadeInOnScroll();
-            window.addEventListener('scroll', fadeInOnScroll);
-            
-            // Benefit items specific animation
-            const benefitItems = document.querySelectorAll('.benefit-item');
-            
-            const benefitInOnScroll = function() {
-                benefitItems.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const elementVisible = 100;
-                    
-                    if (elementTop < window.innerHeight - elementVisible) {
-                        element.classList.add('visible');
-                    }
-                });
-            };
-            
-            benefitInOnScroll();
-            window.addEventListener('scroll', benefitInOnScroll);
-            
-            // ===== COUNTDOWN TIMER =====
-            function updateCountdown() {
-                // Set target date (5 days from now)
-                const targetDate = new Date();
-                targetDate.setDate(targetDate.getDate() + 5);
-                targetDate.setHours(23, 59, 59, 999);
-                
-                const now = new Date().getTime();
-                const timeRemaining = targetDate - now;
-                
-                // Calculate days, hours, minutes, seconds
-                const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-                
-                // Update display
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-                
-                // If countdown finished
-                if (timeRemaining < 0) {
-                    clearInterval(countdownInterval);
-                    document.querySelector('.countdown h3').innerHTML = '<i class="fas fa-hourglass-end"></i> Offer Expired';
-                }
-            }
-            
-            // Update countdown every second
-            updateCountdown();
-            const countdownInterval = setInterval(updateCountdown, 1000);
-            
-            // ===== TESTIMONIAL SLIDER =====
-            const testimonialTrack = document.getElementById('testimonialTrack');
-            const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-            const sliderDots = document.querySelectorAll('.slider-dot');
-            let currentSlide = 0;
-            
-            function goToSlide(slideIndex) {
-                testimonialTrack.style.transform = `translateX(-${slideIndex * 100}%)`;
-                
-                // Update active dot
-                sliderDots.forEach(dot => dot.classList.remove('active'));
-                sliderDots[slideIndex].classList.add('active');
-                
-                currentSlide = slideIndex;
-            }
-            
-            // Add click events to dots
-            sliderDots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    goToSlide(index);
-                });
-            });
-            
-            // Auto slide every 5 seconds
-            setInterval(() => {
-                currentSlide = (currentSlide + 1) % testimonialSlides.length;
-                goToSlide(currentSlide);
-            }, 5000);
-            
-            // ===== FORM SUBMISSION =====
-            const purchaseForm = document.getElementById('purchaseForm');
-            
-            purchaseForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form data
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const phone = document.getElementById('phone').value;
-                const package = document.getElementById('package').value;
-                
-                // Show success message
-                const submitBtn = purchaseForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.innerHTML;
-                
-                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-                submitBtn.disabled = true;
-                
-                // Simulate form submission
-                setTimeout(() => {
-                    alert(`Thank you ${name}! Your purchase request for the ${package} package has been received. We will contact you at ${email} or ${phone} within 24 hours to complete the transaction.`);
-                    
-                    // Reset form
-                    purchaseForm.reset();
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    
-                    // Scroll to top
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                }, 2000);
-            });
-            
-            // ===== MOBILE MENU =====
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const navLinks = document.querySelector('.nav-links');
-            
-            mobileMenuBtn.addEventListener('click', function() {
-                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                
-                if (navLinks.style.display === 'flex') {
-                    navLinks.style.flexDirection = 'column';
-                    navLinks.style.position = 'absolute';
-                    navLinks.style.top = '100%';
-                    navLinks.style.left = '0';
-                    navLinks.style.width = '100%';
-                    navLinks.style.backgroundColor = 'white';
-                    navLinks.style.padding = '20px';
-                    navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-                    navLinks.style.gap = '20px';
-                }
-            });
-            
-            // Close mobile menu when clicking a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth <= 768) {
-                        navLinks.style.display = 'none';
-                    }
-                });
-            });
-            
-            // ===== PHONE NUMBER FORMATTING =====
-            const phoneInput = document.getElementById('phone');
-            
-            phoneInput.addEventListener('input', function(e) {
-                let value = e.target.value.replace(/\D/g, '');
-                
-                if (value.length > 0) {
-                    if (value.length <= 3) {
-                        value = value;
-                    } else if (value.length <= 6) {
-                        value = `${value.substring(0, 3)}-${value.substring(3)}`;
-                    } else if (value.length <= 10) {
-                        value = `${value.substring(0, 3)}-${value.substring(3, 6)}-${value.substring(6)}`;
-                    } else {
-                        value = `${value.substring(0, 3)}-${value.substring(3, 6)}-${value.substring(6, 10)}`;
-                    }
-                }
-                
-                e.target.value = value;
-            });
-            
-            // ===== SMOOTH SCROLLING FOR ANCHOR LINKS =====
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-            
-            // ===== DOMAIN NAME HOVER EFFECT =====
-            const domainName = document.querySelector('.domain-display h2');
-            
-            domainName.addEventListener('mouseenter', function() {
-                this.style.transform = 'scale(1.05)';
-                this.style.transition = 'transform 0.3s ease';
-            });
-            
-            domainName.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale(1)';
-            });
-        });
+<div class="container">
+    <main class="article-card">
+        <span class="category-label">കേരള രാഷ്ട്രീയം</span>
+        <h1>പണിമുടക്കിൽ കത്തിയെരിഞ്ഞ് കേരളം: ട്രേഡ് യൂണിയൻ സമരം അപ്രഖ്യാപിത ഹർത്താലായി മാറി</h1>
         
-        // ===== ADDITIONAL ANIMATIONS =====
-        window.addEventListener('load', function() {
-            // Animate system nodes sequentially
-            const systemNodes = document.querySelectorAll('.system-node');
-            
-            systemNodes.forEach((node, index) => {
-                setTimeout(() => {
-                    node.style.opacity = '1';
-                    node.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-            
-            // Initially set system nodes to invisible
-            systemNodes.forEach(node => {
-                node.style.opacity = '0';
-                node.style.transform = 'translateY(20px)';
-                node.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
-        });
-    </script>
+        <p class="news-para">
+            കേന്ദ്ര സർക്കാർ നയങ്ങൾക്കെതിരെ സംയുക്ത ട്രേഡ് യൂണിയനുകൾ ആഹ്വാനം ചെയ്ത 24 മണിക്കൂർ പണിമുടക്ക് കേരളത്തിൽ അക്ഷരാർത്ഥത്തിൽ ഒരു ഹർത്താലായി മാറിയിരിക്കുകയാണ്. സംസ്ഥാനത്തെ ജനജീവിതം പൂർണ്ണമായും സ്തംഭിച്ച കാഴ്ചയാണ് ഇന്ന് കാണാൻ സാധിക്കുന്നത്. കെഎസ്ആർടിസി സർവീസുകൾ നിലച്ചതോടെ രോഗികളും സാധാരണക്കാരായ യാത്രക്കാരും പെരുവഴിയിലായി. തലസ്ഥാന നഗരിയിലെ തമ്പാനൂർ ബസ് സ്റ്റാൻഡ് യാത്രക്കാരില്ലാതെ വിജനമായി കിടക്കുന്നത് സമരത്തിന്റെ തീവ്രത എത്രത്തോളമുണ്ടെന്ന് വിളിച്ചുപറയുന്നു. നിരത്തുകളിൽ സ്വകാര്യ വാഹനങ്ങൾ മാത്രമാണ് വളരെ പരിമിതമായി ഓടുന്നത്. പണിമുടക്ക് പ്രഖ്യാപിച്ച സാഹചര്യത്തിൽ സംസ്ഥാനത്തെ മിക്ക വിദ്യാഭ്യാസ സ്ഥാപനങ്ങളും ഇന്ന് പ്രവർത്തിച്ചില്ല. 
+        </p>
+
+        <div class="analysis-box">
+            "സമരം ചെയ്യാനുള്ള അവകാശത്തെ ആരും ചോദ്യം ചെയ്യുന്നില്ല, എന്നാൽ അധ്യാപകരെ പൂട്ടിയിടുന്നതും കുട്ടികളെ പുറത്താക്കുന്നതും ജനാധിപത്യപരമായ പോരാട്ടമല്ല. ഇത് സാധാരണക്കാരന്റെ വയറ്റത്തടിക്കുന്ന സമരമായി മാറുന്നുവെന്ന് Amazetimes നിരീക്ഷിക്കുന്നു."
+        </div>
+
+        <p class="news-para">
+            സംസ്ഥാനത്തിന്റെ വിവിധയിടങ്ങളിൽ പണിമുടക്കിനോടനുബന്ധിച്ച് അക്രമസംഭവങ്ങൾ റിപ്പോർട്ട് ചെയ്തു. നെടുമങ്ങാട് ഗേൾസ് ഹയർ സെക്കൻഡറി സ്കൂളിൽ എട്ട് അധ്യാപകരെ സമരാനുകൂലികൾ പൂട്ടിയിട്ടത് വലിയ തോതിലുള്ള ക്രമസമാധാന പ്രശ്നങ്ങൾക്ക് കാരണമായി. കോഴിക്കോട് സ്കൂളിൽ പഠിപ്പിക്കാനെത്തിയ അധ്യാപകരെയും കുട്ടികളെയും സമരക്കാർ ബലംപ്രയോഗിച്ച് പുറത്താക്കി. ചങ്ങനാശേരിയിൽ പണിമുടക്കിനിടെ ഒരു ഹോട്ടൽ തല്ലിത്തകർക്കുന്ന സംഭവവും ഉണ്ടായി. സിഐടിയു നേതാവ് തന്റെ വീടിന് മുന്നിലെ റോഡ് സ്വന്തം നിലയ്ക്ക് ടാറിങ് നടത്തിയത് വലിയ വിവാദമായിരിക്കുകയാണ്. ശശി തരൂർ എംപി ഈ സമരത്തെ വിമർശിച്ച് രംഗത്തെത്തി. ഭാരത് ബന്ദ് വെറും കേരള ബന്ദായി മാറിയെന്നായിരുന്നു അദ്ദേഹത്തിന്റെ പരിഹാസം.
+        </p>
+
+        <span class="section-title">കോടതിയും ശബരിമല വിവാദവും</span>
+        <p class="news-para">
+            പാലക്കാട് എംഎൽഎ രാഹുൽ മാങ്കൂട്ടത്തിലിന് ലൈംഗിക പീഡനക്കേസിൽ ഹൈക്കോടതി മുൻകൂർ ജാമ്യം അനുവദിച്ചു. ഫോണും പാസ്‌പോർട്ടും കോടതിയിൽ ഹാജരാക്കണമെന്നതടക്കം കടുത്ത വ്യവസ്ഥകളോടെയാണ് ജാമ്യം. ശബരിമലയിലെ സ്വർണക്കൊള്ളയുമായി ബന്ധപ്പെട്ട കേസിൽ വിജിലൻസ് അന്വേഷണം ഊർജിതമാക്കിയിരിക്കുകയാണ്. ശബരിമലയിലെ താൽക്കാലിക ജീവനക്കാരുടെ ദുരൂഹമായ പണമിടപാടുകളിൽ അന്വേഷണം നടത്താൻ ഹൈക്കോടതി ഉത്തരവിട്ടു. കൂടാതെ ആഗോള അയ്യപ്പ സംഗമത്തിന്റെ വരവുചെലവ് കണക്കുകളിൽ വലിയ രീതിയിലുള്ള ക്രമക്കേടുണ്ടെന്ന് വിജിലൻസ് റിപ്പോർട്ട് വ്യക്തമാക്കുന്നു. ഇത് ദേവസ്വം ബോർഡിനെയും സർക്കാരിനെയും പ്രതിരോധത്തിലാക്കിയിരിക്കുകയാണ്.
+        </p>
+
+        <span class="section-title">ദേശീയ - അന്തർദേശീയ വാർത്തകൾ</span>
+        <p class="news-para">
+            പ്രതിരോധ രംഗത്ത് ചരിത്രപരമായ തീരുമാനവുമായി കേന്ദ്ര സർക്കാർ രംഗത്തെത്തി. 114 റഫാൽ യുദ്ധവിമാനങ്ങൾ വാങ്ങാനുള്ള വമ്പൻ കരാറിന് ഇന്ത്യ അംഗീകാരം നൽകി. രാഷ്ട്രീയ രംഗത്ത്, രാഹുൽ ഗാന്ധിയെ അയോഗ്യനാക്കണമെന്ന് ആവശ്യപ്പെട്ട് ബിജെപി ലോക്സഭയിൽ നോട്ടീസ് നൽകി. അന്താരാഷ്ട്ര തലത്തിൽ, റഷ്യൻ എണ്ണ വാങ്ങാനുള്ള ഇന്ത്യയുടെ തീരുമാനത്തിൽ മുൻ യുഎസ് പ്രസിഡന്റ് ഡൊണാൾഡ് ട്രംപ് പുതിയ പ്രസ്താവന നടത്തിയിട്ടുണ്ട്. ബംഗ്ലാദേശിൽ കനത്ത സുരക്ഷയിൽ വോട്ടെടുപ്പ് പുരോഗമിക്കുമ്പോൾ കാനഡയിൽ ഇന്ത്യൻ വിദ്യാർത്ഥികൾ കൊല്ലപ്പെട്ട സംഭവത്തിൽ ഭാരത സർക്കാർ ശക്തമായ പ്രതിഷേധം അറിയിച്ചു.
+        </p>
+
+        <span class="section-title">വിനോദം & കായികം</span>
+        <p class="news-para">
+            ടി20 ലോകകപ്പിൽ ഇന്ത്യ ഇന്ന് നമീബിയയെ നേരിടുമ്പോൾ മലയാളി താരം സഞ്ജു സാംസൺ പ്ലേയിംഗ് ഇലവനിൽ ഉണ്ടാകുമെന്നാണ് ആരാധകരുടെ പ്രതീക്ഷ. പരിക്കിന് ശേഷം ജസ്പ്രീത് ബുംറ ഇന്ന് കളത്തിൽ തിരിച്ചെത്തും. വിനോദ ലോകത്ത്, നടി ശ്രീലീല ഡോക്ടർ ബിരുദം നേടിയ ചിത്രങ്ങൾ തരംഗമായിരിക്കുകയാണ്. മഞ്ജു വാര്യരുടെ കഴുത്തിലെ പാച്ച് ആരാധകരെ ആശങ്കയിലാഴ്ത്തുമ്പോൾ തമിഴ് നടൻ വിജയ്ലുടെ 'ജനനായകൻ' എന്ന ചിത്രം പാൻ ഇന്ത്യൻ റിലീസിന് ഒരുങ്ങുന്നു. ആർത്തവ അവധി വനിതാ കണ്ടക്ടർമാർക്ക് നൽകുന്ന കാര്യം പരിഗണിക്കാൻ ഹൈക്കോടതി കെഎസ്ആർടിസിക്ക് നിർദ്ദേശം നൽകിയത് വലിയ ചർച്ചകൾക്ക് വഴിതെളിച്ചിട്ടുണ്ട്.
+        </p>
+
+        <div class="analysis-box">
+            "ഭക്ഷ്യ സുരക്ഷയിൽ വൻ വീഴ്ച. കേരളത്തിലെ ചിക്കൻ സാമ്പിളുകളിൽ ഇ-കോളി ബാക്ടീരിയയുടെ സാന്നിധ്യം കണ്ടെത്തിയത് ഗൗരവകരമാണ്. നമ്മുടെ അടുക്കളകൾ ഇനി സുരക്ഷിതമാണോ എന്ന് Amazetimes അധികൃതരോട് ചോദിക്കുന്നു."
+        </div>
+
+    </main>
+
+    <aside class="sidebar">
+        <div class="sidebar-widget">
+            <h3 class="widget-head">Trending @ Amazetimes</h3>
+            <a href="#" class="trending-item">എസ്എൻഡിപി വോട്ടവകാശ കേസ് സുപ്രീം കോടതിയിൽ</a>
+            <a href="#" class="trending-item">കൊച്ചിയിൽ അന്തരീക്ഷ മലിനീകരണം രൂക്ഷമാകുന്നു</a>
+            <a href="#" class="trending-item">നിർമ്മൽ ലോട്ടറി ഫലം ഇന്ന് മൂന്നിന് അറിയാം</a>
+            <a href="#" class="trending-item">പുതുയുഗയാത്ര വിവാദത്തിൽ ഡിസിസി വിശദീകരണം തേടി</a>
+            <a href="#" class="trending-item">മമ്ത മോഹൻദാസിന്റെ വെളിപ്പെടുത്തൽ വൈറലാകുന്നു</a>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3 class="widget-head">Poll of the Day</h3>
+            <p>പണിമുടക്കുകളിൽ ജനങ്ങളെ ബുദ്ധിമുട്ടിക്കുന്നത് ഒഴിവാക്കേണ്ടതല്ലേ?</p>
+            <button style="width:100%; background:var(--brand-red); color:white; border:none; padding:12px; margin-top:10px; cursor:pointer; font-weight:bold;">തീർച്ചയായും</button>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3 class="widget-head">Weather Alert</h3>
+            <p>കേരളത്തിൽ വരും ദിവസങ്ങളിൽ ചൂട് കനക്കും. 10 മണി മുതൽ 3 മണി വരെ നേരിട്ട് വെയിൽ ഏൽക്കരുതെന്ന് ദുരന്ത നിവാരണ അതോറിറ്റി അറിയിച്ചു. വേനൽ മഴ ഉടൻ മാറാൻ സാധ്യത.</p>
+        </div>
+
+        <div class="sidebar-widget">
+            <h3 class="widget-head">Technology</h3>
+            <p>ഡീപ്പ്ഫേക്ക് വീഡിയോകൾ നിയന്ത്രിക്കാൻ പുതിയ നിയമം വരുന്നു. സാംസങ് എസ് 25 ന് പുറമെ ആധാർ ബയോമെട്രിക് സുരക്ഷ വർദ്ധിപ്പിക്കാനും സർക്കാർ നീക്കം തുടങ്ങിയിട്ടുണ്ട്.</p>
+        </div>
+    </aside>
+</div>
+
+<footer>
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+        <div>
+            <h2>Amazetimes</h2>
+            <p>24/7 ലൈവ് വാർത്തകൾ ഒരൊറ്റ ക്ലിക്കിൽ. സത്യസന്ധവും സുതാര്യവുമായ മാധ്യമപ്രവർത്തനം.</p>
+        </div>
+        <div>
+            <h2>Quick Links</h2>
+            <p>രാഷ്ട്രീയം | കായികം | വിനോദം | ഗാഡ്‌ജെറ്റുകൾ</p>
+        </div>
+        <div>
+            <h2>Connect</h2>
+            <p>Email: news@amazetimes.com<br>Location: Kochi, Kerala</p>
+        </div>
+    </div>
+    
+    <div class="disclaimer-area">
+        &copy; 2026 Amazetimes News Network. All Rights Reserved. <br>
+        <strong>Disclaimer:</strong> this is not registered news and no relation between Amaze times (Monthly magazine ) ..
+    </div>
+</footer>
+
 </body>
 </html>
